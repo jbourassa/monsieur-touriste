@@ -1,0 +1,12 @@
+<a href="#" class="next-prev" id="prev-pic"></a>
+<div id="pic-wrap">
+	<ul id="tourist-pics">
+		<% pics.each do |pic| %>
+			<li>
+			<a href=""><img src="<%= mini_path(pic.id) %>" alt="" /></a>
+				<p>pic.msg</p>
+			</li>
+		<% end %>
+	</ul>
+</div>
+<a href="#" class="next-prev" id="next-pic"></a>

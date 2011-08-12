@@ -1,0 +1,19 @@
+<% is_add = (defined? pic).nil? %>
+<h2><%= is_add ? "New pic" : "Editing pic ##{pic.id}" %></h2>
+<form method="post" enctype="multipart/form-data">
+	<% if is_add %>
+		<div>
+			<label for="form_pic">Picture</label>
+			<input type="file" id="form_pic" name="pic">
+		</div>
+	<% else %>
+		<img src="<% mini_path(pic.id) %>" alt="">
+	<% end %>
+
+	<div>
+		<label for="form_msg"Message</label>
+		<textarea id="form_msg" name="msg"><%= pic.msg unless is_add %></textarea>
+	</div>
+
+	<input type="submit" value="Save">
+</form>

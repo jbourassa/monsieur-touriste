@@ -1,0 +1,19 @@
+<% edit = (defined? pic).nil? %>
+<h2><%= (edit) ? "Editing pic ##{pic.id}" : "New pic" %></h2>
+<form method="post" enctype="multipart/form-data">
+	<% if edit %>
+		<img src="<% mini_path(pic.id) %>" alt="">
+	<% else %>
+		<div>
+			<label for="form_pic">Picture</label>
+			<input type="file" id="form_pic" name="pic">
+		</div>
+	<% end %>
+
+	<div>
+		<label for="form_msg"Message</label>
+		<textarea id="form_msg" name="msg"><%= if edit; pic.msg; end %></textarea>
+	</div>
+
+	<input type="submit" value="Save">
+</form>

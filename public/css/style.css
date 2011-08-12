@@ -1,0 +1,85 @@
+/* Eric Meyer's Reset Reloaded *//* http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/ */html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, font, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td {margin: 0;padding: 0;border: 0;outline: 0;font-size: 100%;vertical-align: baseline;background: transparent;}body {line-height: 1;}ol, ul {list-style: none;}blockquote, q {quotes: none;}/* remember to define focus styles! */:focus {outline: 0;}/* remember to highlight inserts somehow! */ins {text-decoration: none;}del {text-decoration: line-through;}/* tables still need 'cellspacing="0"' in the markup */table {border-collapse: collapse;border-spacing: 0;}
+
+html{
+	height: 100%;
+	background-color:#dbf1ff;
+	background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.7, rgb(219,241,255)),
+    color-stop(1, rgb(189,230,255))
+	);
+	background-image: -moz-linear-gradient(
+    center bottom,
+    rgb(219,241,255) 70%,
+    rgb(189,230,255) 100%
+	);
+	background-repeat: no-repeat;
+}
+
+body{
+	margin: 0 auto;
+	position: relative;
+	min-height: 100%;
+	width: 820px;
+}
+
+#monsieur-touriste{
+	background: url('/img/monsieur-touriste.png') no-repeat bottom;
+	height: 185px;
+	margin: 0 auto 44px auto;
+	text-indent: -999px;
+	width: 360px;
+}
+
+#pic-wrap{
+	overflow: hidden;
+	position: absolute;
+	left: 50px;
+	width: 720px;
+}
+
+#tourist-pics{
+	left: 0;
+	position: relative;
+	width: 999999px;
+}
+
+#tourist-pics li{
+	float: left;
+	position: relative;
+	text-align: center;
+	width: 720px;
+}
+
+.next-prev{
+	margin-top: 180px;
+	height: 0;
+	width: 0;
+}
+
+.next-prev.disabled{
+	cursor: default;
+}
+
+#prev-pic{
+	float: left;
+	border-top: 30px solid transparent;
+	border-bottom: 30px solid transparent;
+	border-right: 30px solid #829cab;
+}
+#prev-pic.disabled{
+	border-right: 30px solid #c4e7fd;
+}
+
+#next-pic{
+	float: right;
+	border-top: 30px solid transparent;
+	border-bottom: 30px solid transparent;
+	border-left: 30px solid #829cab;
+}
+
+#next-pic.disabled{
+	border-left: 30px solid #c4e7fd;
+}
