@@ -1,0 +1,3 @@
+admin_username : admin
+admin_password : admin
+db_string : sqlite:///path/to/tourist.db

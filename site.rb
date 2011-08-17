@@ -4,6 +4,9 @@ require 'sinatra/reloader' if development?
 require 'RMagick'
 require 'data_mapper'
 require 'erb'
+require 'yaml'
+
+set :config, YAML.load_file("#{settings.root}/config.#{settings.environment}.yaml")
 
 set :height, 540
 
@@ -108,5 +111,5 @@ post '/admin/edit/:id' do |id|
 end
 
 post '/admin/delete/:id' do 
-	
+	#@todo
 end
