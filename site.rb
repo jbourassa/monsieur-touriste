@@ -10,7 +10,7 @@ set :config, YAML.load_file("#{settings.root}/config.#{settings.environment}.yam
 
 set :height, 540
 
-DataMapper.setup(:default, 'sqlite:///Users/jbourassa/dev/monsieurtouriste/touriste.db')
+DataMapper.setup(:default, settings.config['db_string'])
 
 # Define ORM class for pictures
 class Pic
@@ -38,7 +38,8 @@ helpers do
 
   def authorized?
     @auth ||=  Rack::Auth::Basic::Request.new(request.env)
-    @auth.provided? && @auth.basic? && @auth.credentials && @auth.credentials == ['admin', 'admin']
+    @auth.provided? && @auth.basic? && @auth.credentials \
+		 &&	@auth.credentials == [settings.config['admin_username'], settings.config['admin_password']]
   end
 
 	def mini_path(id)
