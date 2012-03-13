@@ -1,0 +1,29 @@
+<div>
+	<a href="/" class="btn">Back to site</a>
+	<a href="/admin/add" class="btn">Add pic</a>
+</div>
+<h2>All pics</h2>
+<% if pics.empty? %>
+	<p>No pics. Move along.</p>
+<% else %>
+	<table class="zebra-striped">
+		<tr>
+			<th>#</th>
+			<th>Message</th>
+			<th>Actions</th>
+		</tr>
+		<% pics.each do |pic| %>
+			<tr>
+				<td><%= pic.id %></td>
+				<td><%= pic.msg %></td>
+				<td class="actions">
+					<a href="<%= mini_path(pic.id) %>">View</a>
+					<a href="/admin/edit/<%= pic.id %>">Edit</a>
+					<form action="/admin/delete/<%= pic.id %>" method="post" class="delete-form">
+						<input type="submit" value="Delete">
+					</form>
+				</td>
+			</tr>
+		<% end %>
+	</table>
+<% end %>

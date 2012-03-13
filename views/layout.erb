@@ -7,6 +7,9 @@
 		<script type="text/javascript" src="/js/jquery-1.6.1.min.js"></script>
 		<script type="text/javascript" src="/js/tourist.js"></script>
 	</head>
+    <% if is_admin? %>
+      <link href="/css/admin.css" rel="stylesheet" type="text/css" />
+    <% end %>
 
 	<body>
 		<h1 id="monsieur-touriste"><a href="/">Monsieur Toursite</a></h1>

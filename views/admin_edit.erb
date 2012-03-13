@@ -2,18 +2,25 @@
 <h2><%= is_add ? "New pic" : "Editing pic ##{pic.id}" %></h2>
 <form method="post" enctype="multipart/form-data">
 	<% if is_add %>
-		<div>
+		<div class="clearfix">
 			<label for="form_pic">Picture</label>
-			<input type="file" id="form_pic" name="pic">
+			<div class="input">
+				<input type="file" id="form_pic" name="pic">
+			</div>
 		</div>
 	<% else %>
 		<img src="<% mini_path(pic.id) %>" alt="">
 	<% end %>
 
-	<div>
-		<label for="form_msg"Message</label>
-		<textarea id="form_msg" name="msg"><%= pic.msg unless is_add %></textarea>
+	<div class="clearfix">
+		<label for="form_msg">Message</label>
+		<div class="input">
+			<textarea id="form_msg" name="msg"><%= pic.msg unless is_add %></textarea>
+		</div>
 	</div>
 
-	<input type="submit" value="Save">
+	<div class="actions">
+		<input type="submit" class="btn primary" value="Save">
+		<a href="/admin" class="btn">Cancel</a>
+	</div>
 </form>
