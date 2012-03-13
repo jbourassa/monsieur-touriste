@@ -10,7 +10,7 @@ set :config, YAML.load_file("#{settings.root}/config.#{settings.environment}.yam
 
 set :height, 540
 
-DataMapper.setup(:default, settings.config['db_string'])
+DataMapper.setup :default, settings.config['db_string']
 
 # Define ORM class for pictures
 class Pic
@@ -29,7 +29,7 @@ helpers do
   # Auth
   def protected!
     unless authorized?
-      response['WWW-Authenticate'] = %(Basic realm="Restricted Area")
+      response['WWW-Authenticate'] = %(Basic realm="Beware!")
       throw(:halt, [401, "Not authorized\n"])
     end
   end
@@ -37,7 +37,15 @@ helpers do
   def authorized?
     @auth ||=  Rack::Auth::Basic::Request.new(request.env)
     @auth.provided? && @auth.basic? && @auth.credentials \
-		 &&	@auth.credentials == [settings.config['admin_username'], settings.config['admin_password']]
+      && @auth.credentials == credentials
+  end
+
+  def credentials
+    [settings.config['admin_username'], settings.config['admin_password']]
+  end
+
+  def is_admin?
+    request.path_info.start_with? '/admin'
   end
 
   def mini_path(id)
