@@ -1,3 +1,5 @@
 tmp/*
+pics/*
+public/img/photos/*
 config.development.yaml
 config.production.yaml
