@@ -1,4 +1,4 @@
-app_root = File.join(File.dirname(__FILE__))
+app_root = File.join(File.dirname(File.dirname(__FILE__)))
 worker_processes 2
 working_directory app_root
 
