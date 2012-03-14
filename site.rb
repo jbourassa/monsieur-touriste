@@ -6,8 +6,8 @@ require 'data_mapper'
 require 'erb'
 require 'yaml'
 
-set :config, YAML.load_file("#{settings.root}/config.#{settings.environment}.yaml")
-
+set :config, YAML.load_file(File.join(settings.root, 'config',
+                                      "#{settings.environment}.yml"))
 set :height, 540
 
 DataMapper.setup :default, settings.config['db_string']
