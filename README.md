@@ -1,5 +1,7 @@
 # Monsieur Touriste
 
+**Monsieur Touriste is not up yet – I am still working on some design issues.**
+
 Monsieur Touriste is a toy project and a Sinatra experiment that came to life
 while I was visiting Europe. The basic idea is to look very tourist-ish and/or
 dumb with well known locations in the background. Hopefully the number of
