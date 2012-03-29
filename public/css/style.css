@@ -16,18 +16,22 @@ html{
 		rgb(189,230,255) 100%
 	);
 	background-repeat: no-repeat;
+	font-size: 14px;
 }
 
 body{
+	color: #393939;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	line-height: 1em;
 	margin: 0 auto;
 	position: relative;
 	min-height: 100%;
+	text-shadow: 1px 1px 0 #fff;
 	width: 820px;
 }
 
 a{
+	color: #627c8b;
 	text-decoration: none;
 }
 
@@ -45,7 +49,7 @@ a{
 
 #pic-wrap{
 	overflow: hidden;
-	margin: 0 auto;
+	margin: 0 auto 20px;
 	width: 720px;
 }
 
@@ -53,6 +57,10 @@ a{
 	left: 0;
 	position: relative;
 	width: 999999px;
+}
+
+#tourist-pics img{
+	padding-bottom: 8px;
 }
 
 #tourist-pics li{
