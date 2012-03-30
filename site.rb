@@ -62,18 +62,16 @@ end
 
 # Home
 get '/' do
-  erb :index, :locals => {
-    :pics => Pic.all(:order => [:created_at.desc])
-  }
+  erb :index, :locals => { :pics => Pic.all(:order => [:created_at.desc]) }
 end
 
-# Resize image.
-# Make sure that the web server adds proper headers (fare expire)
+
+# Resize image and cache the result
 get %r{^/img/pics/(\d+)_(\d+).jpg$} do |id, passed_height|
   raise not_found unless passed_height.to_i == settings.height
   orig_img = Magick::ImageList.new("pics/#{id.to_s}.jpg")
   new_img = orig_img.resize_to_fit(settings.height)
-  new_img.write("public/img/photos/#{id.to_s}_#{passed_height}.jpg")
+  new_img.write("public/img/pics/#{id.to_s}_#{passed_height}.jpg")
   headers = {
     'Content-Type' => 'image/jpeg',
     'Expires' => 'Thu, 15 Apr 2020 20:00:00 GMT'
@@ -94,10 +92,7 @@ end
 
 post '/admin/add' do
   Pic.transaction do |t|
-    new_pic = Pic.create(
-      :msg => params[:msg],
-      :created_at => Time.now
-    )
+    new_pic = Pic.create(:msg => params[:msg], :created_at => Time.now)
     File.open("pics/#{new_pic.id}.jpg", 'wb') do |f|
       f.write(params[:pic][:tempfile].read)
     end
