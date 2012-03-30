@@ -6,7 +6,7 @@ set :deploy_to, "~/domains/www.monsieurtouriste.com"
 set :deploy_via, :remote_cache
 set :use_sudo, false
 set :user, "monsieurtouriste"
-set :shared_children, %w{ tmp config/production.yml }
+set :shared_children, %w{ tmp config/production.yml pics public/img/pics }
 set :keep_releases, 5
 set :env, "production"
 set :normalize_asset_timestamps, false
